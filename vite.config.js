@@ -11,4 +11,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        http: true,
+        host: 'codequestions.test',
+    },
 });
