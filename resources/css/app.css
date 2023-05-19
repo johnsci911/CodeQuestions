@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+    display: none !important;
+}
+
 /** Vertical line to the left of the comment */
 .comments-container::before {
     position: absolute;
