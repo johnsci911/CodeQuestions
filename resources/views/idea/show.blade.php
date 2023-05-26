@@ -34,8 +34,8 @@
                         x-data="{ isOpen: false }"
                         class="flex items-center space-x-2"
                     >
-                        <div class="bg-yellow text-white text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 px-4 py-2">
-                            In Progress
+                        <div class="{{ $idea->status->classes }} text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 px-4 py-2">
+                            {{ $idea->status->name }}
                         </div>
                         <button
                             @click="isOpen = !isOpen"
