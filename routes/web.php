@@ -19,7 +19,7 @@ Route::get('/', [IdeaController::class, 'index'])->name('idea.index');
 Route::get('/ideas/{idea:slug}', [IdeaController::class, 'show'])->name('idea.show');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('idea.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
