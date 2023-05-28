@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -62,5 +61,10 @@ class User extends Authenticatable
             .'&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-'
             .$integerToUse
             .'.png';
+    }
+
+    public function votes()
+    {
+        return $this->belongsToMany(Idea::class, 'votes');
     }
 }
