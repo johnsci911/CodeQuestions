@@ -35,9 +35,10 @@
         @foreach ($ideas as $idea)
             <livewire:idea-index :idea="$idea" :votesCount="$idea->votes_count" />
         @endforeach
+
+        <div class="my-8">
+            {{ $ideas->links() }}
+        </div>
     </div> <!-- end ideas-container -->
 
-    <div class="my-8">
-        {{ $ideas->links() }}
-    </div>
 </x-app-layout>
