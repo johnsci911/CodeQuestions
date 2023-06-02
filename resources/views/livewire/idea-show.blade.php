@@ -53,11 +53,17 @@
                             <div class="font-semibold leading-none text-gray-400 text-xxs">Votes</div>
                         </div>
                         @if ($hasVoted)
-                            <button class="w-20 bg-blue text-white px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in border border-blue text-xxs rounded-xl hover:bg-blue-hover">
+                            <button
+                                wire:click.prevent="vote"
+                                class="w-20 bg-blue text-white px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in border border-blue text-xxs rounded-xl hover:bg-blue-hover"
+                            >
                                 Voted
                             </button>
                         @else
-                            <button class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400">
+                            <button
+                                wire:click.prevent="vote"
+                                class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400"
+                            >
                                 Vote
                             </button>
                         @endif
@@ -205,6 +211,7 @@
             </div>
             @if ($hasVoted)
                 <button
+                    wire:click.prevent="vote"
                     type="button"
                     class="w-32 bg-blue text-white px-6 py-3 text-xs font-semibold uppercase transition duration-150 ease-in border border-blue h-11 rounded-xl hover:bg-blue-hover"
                 >
@@ -212,6 +219,7 @@
                 </button>
             @else
                 <button
+                    wire:click.prevent="vote"
                     type="button"
                     class="w-32 px-6 py-3 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400"
                 >
