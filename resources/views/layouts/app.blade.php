@@ -46,7 +46,7 @@
 
                 <a href="#">
                     <img
-                        src="{{ auth()->user()->getAvatar() }}"
+                        src="@auth {{ auth()->user()->getAvatar() }} @else https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp @endauth"
                         alt="avatar"
                         class="w-10 h-10 rounded-full"
                     >
