@@ -8,7 +8,7 @@
             </div>
             <div class="w-full mt-3 md:mx-4 md:mt-0">
                 <h4 class="text-xl font-semibold">
-                    <a href="#" class="hover:underline">{{ $idea->title }}</a>
+                    {{ $idea->title }}
                 </h4>
                 <div class="mt-3 text-gray-600">{{ $idea->description }}</div>
                 <div class="flex flex-col justify-between mt-6 space-y-3 md:flex-row md:items-center md:space-y-0">
