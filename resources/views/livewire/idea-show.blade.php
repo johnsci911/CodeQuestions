@@ -25,7 +25,16 @@
                         x-data="{ isOpen: false }"
                         class="flex items-center space-x-2"
                     >
-                        <div class="{{ $idea->status->classes }} text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 px-4 py-2">
+                        <div
+                            @class([
+                                'bg-gray-200' => $idea->status->id === 1,
+                                'bg-purple text-white' => $idea->status->id === 2,
+                                'bg-yellow text-white' => $idea->status->id === 3,
+                                'bg-green text-white' => $idea->status->id === 4,
+                                'bg-red text-white' => $idea->status->id === 5,
+                                "text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4"
+                            ])
+                        >
                             {{ $idea->status->name }}
                         </div>
                         <button
