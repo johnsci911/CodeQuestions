@@ -22,18 +22,18 @@
                 @if (Route::has('login'))
                     <div class="px-6 py-4">
                         @auth
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
 
-                        <a
-                            href="{{  route('logout') }}"
-                            onclick="
-                                event.preventDefault();
-                                this.closest('form').submit();
-                            ">
-                            {{ __('Log out') }}
-                        </a>
-                    </form>
+                                <a
+                                    href="{{  route('logout') }}"
+                                    onclick="
+                                        event.preventDefault();
+                                        this.closest('form').submit();
+                                    ">
+                                    {{ __('Log out') }}
+                                </a>
+                            </form>
                         @else
                             <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
