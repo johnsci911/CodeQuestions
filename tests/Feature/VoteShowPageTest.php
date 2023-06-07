@@ -3,9 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\IdeaShow;
-use App\Models\Category;
 use App\Models\Idea;
-use App\Models\Status;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Foundation\Testing\RefreshDatabase;

@@ -19,9 +19,7 @@ class AdminSetStatusTest extends TestCase
     /** @test */
     public function show_page_contains_set_status_livewire_component_when_user_is_admin()
     {
-        $user = User::factory()->create([
-            'email' => 'johnguitarizta@gmail.com'
-        ]);
+        $user = User::factory()->admin()->create();
 
         $idea = Idea::factory()->create([
             'user_id' => $user->id,
@@ -51,9 +49,7 @@ class AdminSetStatusTest extends TestCase
     /** @test */
     public function initial_status_is_set_correctly()
     {
-        $user = User::factory()->create([
-            'email' => 'johnguitarizta@gmail.com'
-        ]);
+        $user = User::factory()->admin()->create();
 
         $statusConsidering = Status::factory()->create();
 
@@ -72,9 +68,7 @@ class AdminSetStatusTest extends TestCase
     /** @test */
     public function can_set_status_correctly()
     {
-        $user = User::factory()->create([
-            'email' => 'johnguitarizta@gmail.com',
-        ]);
+        $user = User::factory()->admin()->create();
 
         $status = Status::factory()->create();
 
@@ -100,9 +94,7 @@ class AdminSetStatusTest extends TestCase
     /** @test */
     public function can_set_status_correctly_while_notifying_all_voters()
     {
-        $user = User::factory()->create([
-            'email' => 'johnguitarizta@gmail.com',
-        ]);
+        $user = User::factory()->admin()->create();
 
         $statusConsidering = Status::factory()->create();
         $statusInProgress = Status::factory()->create();

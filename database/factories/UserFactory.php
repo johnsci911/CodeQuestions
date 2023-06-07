@@ -26,12 +26,21 @@ class UserFactory extends Factory
         ];
     }
 
+    public function admin()
+    {
+        return $this->state(function () {
+            return [
+                'email' => 'johnguitarizta@gmail.com',
+            ];
+        });
+    }
+
     /**
      * Indicate that the model's email address should be unverified.
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn () => [
             'email_verified_at' => null,
         ]);
     }

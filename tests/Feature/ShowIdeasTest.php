@@ -15,18 +15,20 @@ class ShowIdeasTest extends TestCase
     /** @test */
     public function list_of_ideas_shows_on_main_page()
     {
-        $categoryOne = Category::factory()->create();
-        $categoryTwo = Category::factory()->create();
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
-        $statusOpen = Status::factory()->create();
-        $statusConsidering = Status::factory()->create();
+        $statusOpen = Status::factory()->create(['name' => 'OpenUnique']);
+        $statusConsidering = Status::factory()->create(['name' => 'ConsideringUnique']);
 
         $ideaOne = Idea::factory()->create([
+            'title' => 'My First Idea',
             'category_id' => $categoryOne->id,
             'status_id' => $statusOpen->id,
         ]);
 
         $ideaTwo = Idea::factory()->create([
+            'title' => 'My Second Idea',
             'category_id' => $categoryTwo->id,
             'status_id' => $statusConsidering->id,
         ]);
@@ -37,26 +39,33 @@ class ShowIdeasTest extends TestCase
         $response->assertSee($ideaOne->title);
         $response->assertSee($ideaOne->description);
         $response->assertSee($categoryOne->name);
-
+        $response->assertSee('OpenUnique');
         $response->assertSee($ideaTwo->title);
         $response->assertSee($ideaTwo->description);
         $response->assertSee($categoryTwo->name);
+        $response->assertSee('ConsideringUnique');
     }
 
     /** @test */
-    public function single_idea_shows_correctly_on_show_page()
+    public function single_idea_shows_correctly_on_the_show_page()
     {
-        $categoryOne = Category::factory()->create();
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'OpenUnique']);
 
         $idea = Idea::factory()->create([
             'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'My First Idea',
         ]);
 
         $response = $this->get(route('idea.show', $idea));
+
         $response->assertSuccessful();
         $response->assertSee($idea->title);
         $response->assertSee($idea->description);
         $response->assertSee($categoryOne->name);
+        $response->assertSee('OpenUnique');
     }
 
     /** @test */
@@ -65,33 +74,33 @@ class ShowIdeasTest extends TestCase
         Idea::factory(Idea::PAGINATION_COUNT + 1)->create();
 
         $ideaOne = Idea::find(1);
-        $ideaOne->title = 'My first Idea';
+        $ideaOne->title = 'My First Idea';
         $ideaOne->save();
 
-        $ideaEleven = Idea::find(11);
-        $ideaEleven->title = 'My eleventh Idea';
-        $ideaEleven->save();
+        $ideaOnSecondPage = Idea::find(Idea::PAGINATION_COUNT + 1);
+        $ideaOnSecondPage->title = 'My Idea On Second Page';
+        $ideaOnSecondPage->save();
 
         $response = $this->get('/');
 
-        $response->assertSee($ideaEleven->title);
+        $response->assertSee($ideaOnSecondPage->title);
         $response->assertDontSee($ideaOne->title);
 
         $response = $this->get('/?page=2');
 
         $response->assertSee($ideaOne->title);
-        $response->assertDontSee($ideaEleven->title);
+        $response->assertDontSee($ideaOnSecondPage->title);
     }
 
     /** @test */
     public function same_idea_title_different_slugs()
     {
         $ideaOne = Idea::factory()->create([
-            'title' => 'My first Idea',
+            'title' => 'My First Idea',
         ]);
 
         $ideaTwo = Idea::factory()->create([
-            'title' => 'My first Idea',
+            'title' => 'My First Idea',
         ]);
 
         $response = $this->get(route('idea.show', $ideaOne));
@@ -108,16 +117,7 @@ class ShowIdeasTest extends TestCase
     /** @test */
     public function in_app_back_button_works_when_index_page_visited_first()
     {
-        $statusConsidering = Status::factory()->create([
-            'name' => 'Considering',
-            'classes' => 'bg-purple text-white'
-        ]);
-
         $ideaOne = Idea::factory()->create();
-
-        Idea::factory()->create([
-            'status_id' => $statusConsidering->id,
-        ]);
 
         $response = $this->get('/?category=Category%202&status=Considering');
         $response = $this->get(route('idea.show', $ideaOne));
@@ -126,11 +126,9 @@ class ShowIdeasTest extends TestCase
     }
 
     /** @test */
-    public function in_app_back_button_works_when_show_page_only_page_visited_first()
+    public function in_app_back_button_works_when_show_page_only_page_visited()
     {
         $ideaOne = Idea::factory()->create();
-
-        Idea::factory()->create();
 
         $response = $this->get(route('idea.show', $ideaOne));
 

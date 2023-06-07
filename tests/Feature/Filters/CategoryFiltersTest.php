@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Filters;
 
 use App\Http\Livewire\IdeasIndex;
 use App\Models\Category;

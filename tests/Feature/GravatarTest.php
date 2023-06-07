@@ -24,10 +24,6 @@ class GravatarTest extends TestCase
             "https://www.gravatar.com/avatar/" . md5($user->email) . "?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-1.png",
             $gravatarUrl
         );
-
-        // $response = Http::get($user->getAvatar());
-        //
-        // $this->assertTrue($response->successful());
     }
 
     /** @test */
@@ -44,10 +40,6 @@ class GravatarTest extends TestCase
             "https://www.gravatar.com/avatar/" . md5($user->email) . "?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-26.png",
             $gravatarUrl
         );
-
-        // $response = Http::get($user->getAvatar());
-        //
-        // $this->assertTrue($response->successful());
     }
 
     /** @test */
@@ -64,10 +56,6 @@ class GravatarTest extends TestCase
             "https://www.gravatar.com/avatar/" . md5($user->email) . "?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-27.png",
             $gravatarUrl
         );
-
-        // $response = Http::get($user->getAvatar());
-        //
-        // $this->assertTrue($response->successful());
     }
 
     /** @test */
