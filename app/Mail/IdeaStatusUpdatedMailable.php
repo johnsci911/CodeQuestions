@@ -29,7 +29,7 @@ class IdeaStatusUpdatedMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Idea Status Updated',
+            subject: 'An idea you voted for has a new status',
         );
     }
 
