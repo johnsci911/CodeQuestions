@@ -37,11 +37,13 @@
                         >
                             {{ $idea->status->name }}
                         </div>
-                        <button
-                            @click="isOpen = !isOpen"
-                            class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7"
-                        >
-                            <svg fill="currentColor" width="24" height="6"><path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z" style="color: rgba(163, 163, 163, .5)"></svg>
+                        <div class="relative">
+                            <button
+                                @click="isOpen = !isOpen"
+                                class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7"
+                            >
+                                <svg fill="currentColor" width="24" height="6"><path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z" style="color: rgba(163, 163, 163, .5)"></svg>
+                            </button>
                             <ul
                                 x-cloak
                                 x-show="isOpen"
@@ -50,10 +52,22 @@
                                 @keydown.escape.window="isOpen = false"
                                 class="absolute z-10 py-3 font-semibold text-left bg-white w-44 shadow-dialog rounded-xl md:ml-8 top-10 md:top-6 -right-2 md:left-0"
                             >
+                                <li>
+                                    <a
+                                        href="#"
+                                        @click="
+                                            isOpen = false
+                                            $dispatch('custom-show-edit-modal')
+                                        "
+                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                                    >
+                                        Edit Idea
+                                    </a>
+                                </li>
+                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete Idea</a></li>
                                 <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Mark as spam</a></li>
-                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete post</a></li>
                             </ul>
-                        </button>
+                        </div>
                     </div>
 
                     <div class="flex items-center mt-4 md:hidden md:mt-0">
