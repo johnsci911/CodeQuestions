@@ -2,6 +2,9 @@
     x-cloak
     x-data="{ isOpen: false }"
     x-show="isOpen"
+    x-init="window.livewire.on('ideaWasUpdated', () => {
+        isOpen = false
+    })"
     @keydown.escape.window="isOpen = false"
     @custom-show-edit-modal.window="isOpen = true"
     class="relative z-10"
@@ -46,7 +49,7 @@
 
                     <h3 class="text-center text-lg font-medium text-gray-900">Edit Idea</h3>
                     <p class="text-xs text-center leading-5 text-gray-500 mt-4 px-6">You have one hour to edit your idea from the time you created it.</p>
-                    <form wire:submit.prevent="createIdea" action="#" method="POST" class="space-y-4 px-4 py-6">
+                    <form wire:submit.prevent="updateIdea" action="#" method="POST" class="space-y-4 px-4 py-6">
                         <div>
                             <input wire:model.defer="title" type="text" class="text-sm w-full bg-gray-100 border-none rounded-xl placeholder-gray-900 px-4 py-2" placeholder="Your Idea" required>
                             @error('title')
@@ -55,7 +58,9 @@
                         </div>
                         <div>
                             <select wire:model.defer="category" id="category_add" name="category_add" class="w-full bg-gray-100 text-sm rounded-xl border-none px-4 py-2">
-                                    <option value="1">Category 1</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                             @error('category')
                                 <p class="text-red text-xs mt-1">{{ $message }}</p>
@@ -81,7 +86,7 @@
                             <button
                                 type="submit"
                                 class="flex items-center justify-center w-1/2 h-11 text-xs bg-blue font-semibold text-white rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
-                            >Submit</button>
+                            >Update</button>
                         </div>
 
                         <div>
