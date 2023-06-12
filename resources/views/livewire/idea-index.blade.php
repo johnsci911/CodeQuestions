@@ -35,7 +35,15 @@
             <h4 class="text-xl font-semibold">
                 <a href="{{ route('idea.show', $idea) }}" class=" idea-link hover:underline">{{ $idea->title }}</a>
             </h4>
-            <div class="mt-3 text-gray-600 line-clamp-3">{{ $idea->description }}</div>
+            <div class="mt-3 text-gray-600 line-clamp-3">
+                @admin
+                    @if ($idea->spam_reports > 0)
+                        <div class="text-red mb-2">Spam Reports: {{ $idea->spam_reports }}</div>
+                    @endif
+                @endadmin
+
+                {{ $idea->description }}
+            </div>
             <div class="flex flex-col justify-between mt-6 space-y-3 md:flex-row md:items-center">
                 <div class="flex items-center space-x-2 text-xs font-semibold text-gray-400">
                     <div>{{ $idea->created_at->diffForHumans() }}</div>

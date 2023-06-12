@@ -18,6 +18,11 @@
         <livewire:delete-idea :idea="$idea" />
     @endcan
 
+    @auth
+        <livewire:mark-idea-as-spam :idea="$idea" />
+        <livewire:mark-idea-as-not-spam :idea="$idea" />
+    @endauth
+
     <div class="relative pt-4 mx-4 my-8 mt-1 space-y-6 comments-container md:mr-0 md:ml-22">
         <div class="relative flex mt-4 bg-white is-admin comment-container rounded-xl">
             <div class="flex flex-col flex-1 px-4 py-6 md:flex-row">
