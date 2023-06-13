@@ -84,17 +84,17 @@
                                             Delete Idea
                                         </a></li>
                                     @endcan
-                                    @if ($idea->spam_reports == 0)
-                                        <li><a
-                                            href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
-                                            @click.prevent="
-                                                isOpen = false
-                                                $dispatch('custom-show-mark-idea-as-spam-modal')
-                                            "
-                                        >
-                                            Mark as Spam
-                                        </a></li>
-                                    @endif
+
+                                    <li><a
+                                        href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                                        @click.prevent="
+                                            isOpen = false
+                                            $dispatch('custom-show-mark-idea-as-spam-modal')
+                                        "
+                                    >
+                                        Mark as Spam
+                                    </a></li>
+
                                     @if ($idea->spam_reports > 0)
                                         <li><a
                                             href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"

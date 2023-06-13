@@ -1,4 +1,4 @@
-<x-modal-confirm 
+<x-modal-confirm
     event-to-open-modal="custom-show-delete-modal"
     event-to-close-modal="ideaWasDeleted"
     modal-title="Delete Idea"
