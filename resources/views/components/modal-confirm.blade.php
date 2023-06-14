@@ -11,7 +11,7 @@
     x-cloak
     x-data="{ isOpen: false }"
     x-show="isOpen"
-    x-init="window.livewire.on('{{ $eventToCloseModal }}', () => {
+    x-init="Livewire.on('{{ $eventToCloseModal }}', () => {
         isOpen = false
     })"
     @keydown.escape.window="isOpen = false"

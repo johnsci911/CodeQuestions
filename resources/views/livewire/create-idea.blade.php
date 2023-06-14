@@ -37,21 +37,4 @@
             class="flex items-center justify-center w-1/2 h-11 text-xs bg-blue font-semibold text-white rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
         >Submit</button>
     </div>
-
-    <div>
-        @if (session('success_message'))
-            <div
-                x-data="{ isVisible: true }"
-                x-init="
-                    setTimeout(() => {
-                        isVisible = false
-                    }, 5000)
-                "
-                x-show="isVisible"
-                x-transition.duration.1000ms
-                class="text-green mt-4">
-                {{ session('success_message') }}
-            </div>
-        @endif
-    </div>
 </form>
