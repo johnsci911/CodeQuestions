@@ -16,6 +16,11 @@ class Idea extends Model
 
     protected $guarded = [];
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function sluggable(): array
     {
         return [

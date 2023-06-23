@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreIdeaRequest;
-use App\Http\Requests\UpdateIdeaRequest;
-use App\Models\Idea;
+use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\UpdateCommentRequest;
+use App\Models\Comment;
 
-class IdeaController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('idea.index');
+        //
     }
 
     /**
@@ -27,7 +27,7 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreIdeaRequest $request)
+    public function store(StoreCommentRequest $request)
     {
         //
     }
@@ -35,21 +35,15 @@ class IdeaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Idea $idea)
+    public function show(Comment $comment)
     {
-        return view('idea.show', [
-            'idea' => $idea,
-            'votesCount' => $idea->votes()->count(),
-            'backUrl' => url()->previous() !== url()->full()
-                ? url()->previous()
-                : route('idea.index'),
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Idea $idea)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -57,7 +51,7 @@ class IdeaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateIdeaRequest $request, Idea $idea)
+    public function update(UpdateCommentRequest $request, Comment $comment)
     {
         //
     }
@@ -65,7 +59,7 @@ class IdeaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Idea $idea)
+    public function destroy(Comment $comment)
     {
         //
     }
