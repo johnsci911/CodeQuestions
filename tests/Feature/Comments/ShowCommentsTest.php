@@ -57,19 +57,22 @@ class ShowCommentsTest extends TestCase
     {
         $idea = Idea::factory()->create();
 
-        Comment::factory()->create([
+        $commentOne = Comment::factory()->create([
             'idea_id' => $idea->id,
             'body' => 'This is my first comment',
         ]);
 
-        Comment::factory()->create([
+        $commentTwo = Comment::factory()->create([
             'idea_id' => $idea->id,
             'body' => 'This is my second comment',
         ]);
 
         $response = $this->get(route('idea.show', $idea));
 
-        $response->assertSeeInOrder(['This is my first comment', 'This is my second comment']);
+        $response->assertSeeInOrder([
+            $commentOne->body,
+            $commentTwo->body
+        ]);
         $response->assertSee('2 comments');
     }
 
