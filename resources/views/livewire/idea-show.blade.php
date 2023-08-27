@@ -62,7 +62,8 @@
                                     class="absolute z-10 py-3 font-semibold text-left bg-white w-44 shadow-dialog rounded-xl md:ml-8 top-10 md:top-6 -right-2 md:left-0"
                                 >
                                     @can('update', $idea)
-                                        <li><a
+                                    <li>
+                                        <a
                                             href="#"
                                             @click.prevent="
                                                 isOpen = false
@@ -71,10 +72,12 @@
                                             class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
                                         >
                                             Edit Idea
-                                        </a></li>
+                                        </a>
+                                    </li>
                                     @endcan
                                     @can('delete', $idea)
-                                        <li><a
+                                        <li>
+                                            <a
                                             href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
                                             @click.prevent="
                                                 isOpen = false
