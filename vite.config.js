@@ -13,6 +13,7 @@ export default defineConfig({
     ],
     server: {
         http: true,
-        host: 'localhost',
+        host: 'codequestions.test',
+        // host: 'localhost'
     },
 });
