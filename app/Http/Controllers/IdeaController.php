@@ -21,7 +21,7 @@ class IdeaController extends Controller
      */
     public function create()
     {
-        //
+        // comment
     }
 
     /**
