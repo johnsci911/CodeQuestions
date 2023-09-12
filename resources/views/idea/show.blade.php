@@ -14,5 +14,5 @@
 
     <x-notification-success />
 
-    <x-idea-modals-container :idea="$idea" />
+    <x-modals-container :idea="$idea" />
 </x-app-layout>
