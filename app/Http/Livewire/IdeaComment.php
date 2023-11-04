@@ -8,6 +8,7 @@ use Livewire\Component;
 class IdeaComment extends Component
 {
     public $comment;
+
     public $ideaUserId;
 
     protected $listeners = [

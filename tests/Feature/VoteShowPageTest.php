@@ -60,11 +60,10 @@ class VoteShowPageTest extends TestCase
             'idea' => $idea,
             'votesCount' => 5,
         ])
-        ->assertSet('votesCount', 5)
-        ->assertSeeHtml('<div class="text-xl text-gray-500 leading-snug">5</div>')
-        ->assertSeeHtml('<div class="text-sm font-bold text-gray-500 leading-none">5</div>');
+            ->assertSet('votesCount', 5)
+            ->assertSeeHtml('<div class="text-xl text-gray-500 leading-snug">5</div>')
+            ->assertSeeHtml('<div class="text-sm font-bold text-gray-500 leading-none">5</div>');
     }
-
 
     /** @test */
     public function user_who_is_logged_in_shows_voted_if_idea_already_voted_for()
@@ -99,9 +98,9 @@ class VoteShowPageTest extends TestCase
         ]);
 
         Livewire::test(IdeaShow::class, [
-                'idea' => $idea,
-                'votesCount' => 5,
-            ])
+            'idea' => $idea,
+            'votesCount' => 5,
+        ])
             ->call('vote')
             ->assertRedirect(route('login'));
     }

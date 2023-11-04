@@ -21,7 +21,7 @@ class GravatarTest extends TestCase
         $gravatarUrl = $user->getAvatar();
 
         $this->assertEquals(
-            "https://www.gravatar.com/avatar/" . md5($user->email) . "?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-1.png",
+            'https://www.gravatar.com/avatar/'.md5($user->email).'?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-1.png',
             $gravatarUrl
         );
     }
@@ -37,7 +37,7 @@ class GravatarTest extends TestCase
         $gravatarUrl = $user->getAvatar();
 
         $this->assertEquals(
-            "https://www.gravatar.com/avatar/" . md5($user->email) . "?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-26.png",
+            'https://www.gravatar.com/avatar/'.md5($user->email).'?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-26.png',
             $gravatarUrl
         );
     }
@@ -53,7 +53,7 @@ class GravatarTest extends TestCase
         $gravatarUrl = $user->getAvatar();
 
         $this->assertEquals(
-            "https://www.gravatar.com/avatar/" . md5($user->email) . "?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-27.png",
+            'https://www.gravatar.com/avatar/'.md5($user->email).'?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-27.png',
             $gravatarUrl
         );
     }
@@ -69,7 +69,7 @@ class GravatarTest extends TestCase
         $gravatarUrl = $user->getAvatar();
 
         $this->assertEquals(
-            "https://www.gravatar.com/avatar/" . md5($user->email) . "?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-36.png",
+            'https://www.gravatar.com/avatar/'.md5($user->email).'?s200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-36.png',
             $gravatarUrl
         );
     }

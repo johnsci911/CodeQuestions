@@ -10,7 +10,9 @@ use Livewire\Component;
 class IdeaIndex extends Component
 {
     public $idea;
+
     public $votesCount;
+
     public $hasVoted;
 
     public function mount(Idea $idea, $votesCount)
@@ -29,7 +31,7 @@ class IdeaIndex extends Component
         if ($this->hasVoted) {
             try {
                 $this->idea->removeVote(auth()->user());
-            } catch(VoteNotFoundException $e) {
+            } catch (VoteNotFoundException $e) {
                 // Do nothing
             }
             $this->votesCount--;

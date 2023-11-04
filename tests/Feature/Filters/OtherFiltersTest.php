@@ -200,17 +200,17 @@ class OtherFiltersTest extends TestCase
 
         Idea::factory()->create([
             'title' => 'Idea One',
-            'spam_reports' => 1
+            'spam_reports' => 1,
         ]);
 
         Idea::factory()->create([
             'title' => 'Idea Two',
-            'spam_reports' => 2
+            'spam_reports' => 2,
         ]);
 
         Idea::factory()->create([
             'title' => 'Idea Three',
-            'spam_reports' => 3
+            'spam_reports' => 3,
         ]);
 
         Idea::factory()->create();
@@ -263,4 +263,3 @@ class OtherFiltersTest extends TestCase
             });
     }
 }
-

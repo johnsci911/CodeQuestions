@@ -71,7 +71,7 @@ class ShowCommentsTest extends TestCase
 
         $response->assertSeeInOrder([
             $commentOne->body,
-            $commentTwo->body
+            $commentTwo->body,
         ]);
         $response->assertSee('2 comments');
     }
@@ -127,7 +127,7 @@ class ShowCommentsTest extends TestCase
         $idea = Idea::factory()->create();
 
         $commentOne = Comment::factory()->create([
-            'idea_id' => $idea
+            'idea_id' => $idea,
         ]);
 
         Comment::factory($commentOne->getPerPage())->create([
@@ -148,4 +148,3 @@ class ShowCommentsTest extends TestCase
         $response->assertSee(Comment::find(Comment::count())->body);
     }
 }
-

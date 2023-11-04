@@ -36,4 +36,3 @@ class MarkCommentAsNotSpam extends Component
         return view('livewire.mark-comment-as-not-spam');
     }
 }
-

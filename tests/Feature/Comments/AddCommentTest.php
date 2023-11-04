@@ -81,4 +81,3 @@ class AddCommentTest extends TestCase
         $this->assertEquals('This is my first comment', $idea->comments->first()->body);
     }
 }
-

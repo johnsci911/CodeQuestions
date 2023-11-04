@@ -10,7 +10,9 @@ use Livewire\Component;
 class IdeaShow extends Component
 {
     public $idea;
+
     public $votesCount;
+
     public $hasVoted;
 
     protected $listeners = [
@@ -38,7 +40,7 @@ class IdeaShow extends Component
         if ($this->hasVoted) {
             try {
                 $this->idea->removeVote(auth()->user());
-            } catch(VoteNotFoundException $e) {
+            } catch (VoteNotFoundException $e) {
                 // Do nothing
             }
             $this->votesCount--;

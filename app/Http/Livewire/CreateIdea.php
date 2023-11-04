@@ -10,7 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 class CreateIdea extends Component
 {
     public $title;
+
     public $category = 1;
+
     public $description;
 
     protected $rules = [

@@ -34,7 +34,7 @@ class AdminSetStatusTest extends TestCase
     public function show_page_does_not_contain_set_status_livewire_component_when_user_is_not_admin()
     {
         $user = User::factory()->create([
-            'email' => 'testuser@gmail.com'
+            'email' => 'testuser@gmail.com',
         ]);
 
         $idea = Idea::factory()->create([
@@ -120,4 +120,3 @@ class AdminSetStatusTest extends TestCase
         Queue::assertPushed(NotifyAllVoters::class);
     }
 }
-

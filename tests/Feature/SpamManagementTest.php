@@ -61,8 +61,8 @@ class SpamManagementTest extends TestCase
         $idea = Idea::factory()->create();
 
         Livewire::test(MarkIdeaAsSpam::class, [
-                'idea' => $idea,
-            ])
+            'idea' => $idea,
+        ])
             ->call('markAsSpam')
             ->assertStatus(Response::HTTP_FORBIDDEN);
     }
@@ -87,9 +87,9 @@ class SpamManagementTest extends TestCase
         $idea = Idea::factory()->create();
 
         Livewire::test(IdeaShow::class, [
-                'idea' => $idea,
-                'votesCount' => 4,
-            ])
+            'idea' => $idea,
+            'votesCount' => 4,
+        ])
             ->assertDontSee('Mark as Spam');
     }
 
@@ -137,8 +137,8 @@ class SpamManagementTest extends TestCase
         $idea = Idea::factory()->create();
 
         Livewire::test(MarkIdeaAsNotSpam::class, [
-                'idea' => $idea,
-            ])
+            'idea' => $idea,
+        ])
             ->call('markAsNotSpam')
             ->assertStatus(Response::HTTP_FORBIDDEN);
     }
@@ -165,9 +165,9 @@ class SpamManagementTest extends TestCase
         $idea = Idea::factory()->create();
 
         Livewire::test(IdeaShow::class, [
-                'idea' => $idea,
-                'votesCount' => 4,
-            ])
+            'idea' => $idea,
+            'votesCount' => 4,
+        ])
             ->assertDontSee('Not Spam');
     }
 

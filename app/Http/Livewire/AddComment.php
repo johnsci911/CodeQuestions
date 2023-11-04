@@ -10,6 +10,7 @@ use Livewire\Component;
 class AddComment extends Component
 {
     public $idea;
+
     public $comment;
 
     protected $rules = [

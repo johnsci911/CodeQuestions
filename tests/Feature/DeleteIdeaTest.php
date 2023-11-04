@@ -170,4 +170,3 @@ class DeleteIdeaTest extends TestCase
             ->assertDontSee('Delete Idea');
     }
 }
-

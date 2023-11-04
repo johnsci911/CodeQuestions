@@ -43,7 +43,7 @@ class VoteIndexPageTest extends TestCase
         ]);
 
         Livewire::test(IdeasIndex::class)
-            ->assertViewHas('ideas', function($ideas) {
+            ->assertViewHas('ideas', function ($ideas) {
                 return $ideas->first()->votes_count == 2;
             });
     }
@@ -55,9 +55,9 @@ class VoteIndexPageTest extends TestCase
             'idea' => Idea::factory()->create(),
             'votesCount' => 5,
         ])
-        ->assertset('votesCount', 5)
-        ->assertseehtml('<div class="text-2xl font-bold text-gray-500">5</div>')
-        ->assertseehtml('<div class="text-sm font-bold leading-none text-gray-500">5</div>');
+            ->assertset('votesCount', 5)
+            ->assertseehtml('<div class="text-2xl font-bold text-gray-500">5</div>')
+            ->assertseehtml('<div class="text-sm font-bold leading-none text-gray-500">5</div>');
     }
 
     /** @test */
@@ -90,9 +90,9 @@ class VoteIndexPageTest extends TestCase
         $idea = Idea::factory()->create();
 
         Livewire::test(IdeaIndex::class, [
-                'idea' => $idea,
-                'votesCount' => 5,
-            ])
+            'idea' => $idea,
+            'votesCount' => 5,
+        ])
             ->call('vote')
             ->assertRedirect(route('login'));
     }

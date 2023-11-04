@@ -100,7 +100,7 @@ class CommentsSpamManagementTest extends TestCase
         Livewire::actingAs($user)
             ->test(IdeaComment::class, [
                 'comment' => $comment,
-                'ideaUserId' => $idea->user_id
+                'ideaUserId' => $idea->user_id,
             ])
             ->assertSee('Mark as Spam');
     }
@@ -118,9 +118,9 @@ class CommentsSpamManagementTest extends TestCase
         ]);
 
         Livewire::test(IdeaComment::class, [
-                'comment' => $comment,
-                'ideaUserId' => $idea->user_id
-            ])
+            'comment' => $comment,
+            'ideaUserId' => $idea->user_id,
+        ])
             ->assertDontSee('Mark as Spam');
     }
 
@@ -212,7 +212,7 @@ class CommentsSpamManagementTest extends TestCase
         Livewire::actingAs($user)
             ->test(IdeaComment::class, [
                 'comment' => $comment,
-                'ideaUserId' => $idea->user_id
+                'ideaUserId' => $idea->user_id,
             ])
             ->assertSee('Not Spam');
     }
@@ -232,7 +232,7 @@ class CommentsSpamManagementTest extends TestCase
         Livewire::actingAs($user)
             ->test(IdeaComment::class, [
                 'comment' => $comment,
-                'ideaUserId' => $idea->user_id
+                'ideaUserId' => $idea->user_id,
             ])
             ->assertDontSee('Not Spam');
     }

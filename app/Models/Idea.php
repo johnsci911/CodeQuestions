@@ -13,6 +13,7 @@ class Idea extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = [];
+
     protected $perPage = 10;
 
     public function comments()
@@ -24,8 +25,8 @@ class Idea extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
-            ]
+                'source' => 'title',
+            ],
         ];
     }
 
